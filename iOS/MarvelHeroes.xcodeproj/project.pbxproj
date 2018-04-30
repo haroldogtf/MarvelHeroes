@@ -13,6 +13,9 @@
 		63C15CE020979F0500698998 /* MarvelHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63C15CDE20979F0500698998 /* MarvelHeroes.xcdatamodeld */; };
 		63C15CE220979F0700698998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C15CE120979F0700698998 /* Assets.xcassets */; };
 		63C15CE520979F0700698998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C15CE320979F0700698998 /* LaunchScreen.storyboard */; };
+		63C15CEF2097AF2A00698998 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C15CEE2097AF2A00698998 /* Util.swift */; };
+		63C15CF22097AF5700698998 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C15CF12097AF5700698998 /* Constants.swift */; };
+		63C15CF42097AFA700698998 /* CharactersAPIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C15CF32097AFA700698998 /* CharactersAPIConnection.swift */; };
 		82FCBECBE1EFACCCCB18573A /* Pods_MarvelHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC42C2B7B56227FBA06D2C89 /* Pods_MarvelHeroes.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,9 @@
 		63C15CE120979F0700698998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63C15CE420979F0700698998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63C15CE620979F0700698998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63C15CEE2097AF2A00698998 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		63C15CF12097AF5700698998 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		63C15CF32097AFA700698998 /* CharactersAPIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersAPIConnection.swift; sourceTree = "<group>"; };
 		95906915C40039077734233A /* Pods-MarvelHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.debug.xcconfig"; sourceTree = "<group>"; };
 		AC42C2B7B56227FBA06D2C89 /* Pods_MarvelHeroes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelHeroes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,14 +78,49 @@
 			isa = PBXGroup;
 			children = (
 				63C15CD720979F0500698998 /* AppDelegate.swift */,
-				63C15CD920979F0500698998 /* ViewController.swift */,
 				63C15CDB20979F0500698998 /* Main.storyboard */,
+				63C15CED2097AF1400698998 /* Controllers */,
+				63C15CF52097AFAA00698998 /* Model */,
+				63C15CF02097AF2F00698998 /* Util */,
+				63C15CEC2097AE8300698998 /* Supporting Files */,
+			);
+			path = MarvelHeroes;
+			sourceTree = "<group>";
+		};
+		63C15CEC2097AE8300698998 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				63C15CE120979F0700698998 /* Assets.xcassets */,
 				63C15CE320979F0700698998 /* LaunchScreen.storyboard */,
 				63C15CE620979F0700698998 /* Info.plist */,
 				63C15CDE20979F0500698998 /* MarvelHeroes.xcdatamodeld */,
 			);
-			path = MarvelHeroes;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63C15CED2097AF1400698998 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				63C15CD920979F0500698998 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63C15CF02097AF2F00698998 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				63C15CF12097AF5700698998 /* Constants.swift */,
+				63C15CEE2097AF2A00698998 /* Util.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		63C15CF52097AFAA00698998 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63C15CF32097AFA700698998 /* CharactersAPIConnection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C628B64AD35D895301539C7B /* Pods */ = {
@@ -209,9 +250,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C15CF22097AF5700698998 /* Constants.swift in Sources */,
 				63C15CDA20979F0500698998 /* ViewController.swift in Sources */,
 				63C15CD820979F0500698998 /* AppDelegate.swift in Sources */,
 				63C15CE020979F0500698998 /* MarvelHeroes.xcdatamodeld in Sources */,
+				63C15CF42097AFA700698998 /* CharactersAPIConnection.swift in Sources */,
+				63C15CEF2097AF2A00698998 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +402,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelHeroes/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.haroldo.MarvelHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -373,7 +420,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelHeroes/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.haroldo.MarvelHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
