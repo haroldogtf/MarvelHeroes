@@ -7,6 +7,7 @@ target 'MarvelHeroes' do
 
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
+  pod 'CryptoSwift'
   pod 'SDWebImage'
 
 end
