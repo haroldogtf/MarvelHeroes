@@ -30,8 +30,10 @@ class CharactersAPIConnection: NSObject {
         
         Alamofire.request(url, method: .get, parameters: parameters).responseObject { (response: DataResponse<CharactersResponse>) in
             
-            if response.result.ifSuccess {
-            
+            if let characters = response.result.value?.results {
+                for character in characters {
+                    print(character.name ?? "")
+                }
             }
         }
     }
@@ -42,13 +44,26 @@ class CharactersResponse: Mappable {
 
     var code: Int?
     var status: String?
+    var results: [Character]?
 
     required init?(map: Map) { }
 
     func mapping(map: Map) {
         code <- map["code"]
         status <- map["status"]
+        results <- map["data.results"]
     }
 
 }
 
+class Character: Mappable {
+
+    var name: String?
+    
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
+        name <- map["name"]
+    }
+
+}
