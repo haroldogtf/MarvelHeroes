@@ -13,7 +13,7 @@ import UIKit
 
 class CharactersAPIConnection: NSObject {
 
-    class func getCharacters() {
+    class func getCharacters(offset: Int) {
 
         let apikey = "ecb64ae319c4b6027bf0adb6efba4fe0"
         let privatekey = "832cf4a6aa8afa1e4e8c389f7bccb96abffa3061"
@@ -23,7 +23,8 @@ class CharactersAPIConnection: NSObject {
         let parameters: Parameters = [
             "apikey": apikey,
             "ts": ts,
-            "hash": hash
+            "hash": hash,
+            "offset": offset
         ]
         
         let url =  "https://gateway.marvel.com:443/v1/public/characters"
