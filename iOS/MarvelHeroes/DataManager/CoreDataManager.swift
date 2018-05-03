@@ -46,6 +46,7 @@ class CoreDataManager: NSObject {
         let coordinator = CoreDataManager.persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
+        managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return managedObjectContext
     }()
     
@@ -56,7 +57,7 @@ class CoreDataManager: NSObject {
             } catch {
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                //abort()
+                abort()
             }
         }
     }
