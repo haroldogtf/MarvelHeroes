@@ -17,7 +17,9 @@ class CharactersViewController: UIViewController {
     }
 
     func loadCharacters() {
-        CharactersAPIConnection.getCharacters(offset: 10)
+        CharactersAPIConnection.getCharacters(offset: 10) { (characters, error) in
+            CoreDataManager.save()
+        }
     }
     
 }
