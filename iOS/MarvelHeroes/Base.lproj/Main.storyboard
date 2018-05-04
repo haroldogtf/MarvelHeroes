@@ -34,32 +34,32 @@
                                     <size key="itemSize" width="170" height="175"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCollectionViewCell" id="vVz-o0-aDi" customClass="CharacterCollectionViewCell" customModule="MarvelHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="170" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NyJ-WN-ccu">
-                                                    <rect key="frame" x="15.666666666666671" y="10" width="144" height="115"/>
+                                                    <rect key="frame" x="13" y="10" width="144" height="115"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="115" id="bbG-uR-VNg"/>
                                                         <constraint firstAttribute="width" constant="144" id="mL5-KP-iN4"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-mF-zQF">
-                                                    <rect key="frame" x="127" y="135" width="30" height="30"/>
+                                                    <rect key="frame" x="122" y="135" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="EWy-BS-gJr"/>
                                                         <constraint firstAttribute="height" constant="30" id="IET-AJ-RhX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMP-Po-rlF">
-                                                    <rect key="frame" x="18" y="135" width="107" height="22"/>
+                                                    <rect key="frame" x="18" y="135" width="102" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

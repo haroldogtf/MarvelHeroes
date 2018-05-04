@@ -49,6 +49,20 @@ extension CharactersViewController: UICollectionViewDelegate {
     
 }
 
+extension CharactersViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let cellWidth: CGFloat = 170.0
+        
+        let numberOfCells = floor(view.frame.size.width / cellWidth)
+        let edgeInsets = (view.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
+        
+        return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+    }
+
+}
+
 class CharacterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
