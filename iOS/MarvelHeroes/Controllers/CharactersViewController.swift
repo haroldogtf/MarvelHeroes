@@ -50,13 +50,33 @@ extension CharactersViewController: UICollectionViewDelegate {
 }
 
 class CharacterCollectionViewCell: UICollectionViewCell {
+
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        cellLayout()
+    }
+    
+    func cellLayout() {
+        contentView.layer.cornerRadius = 2.0
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true;
+        
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOffset = CGSize(width:0,height: 2.0)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 1.0
+        layer.masksToBounds = false;
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+    }
+
     func fill(character: Character) {
-        let photoURL = (character.photoPath ?? "") + "." + (character.photoExtension ?? "")
-        photoImageView.sd_setImage(with: URL(string: photoURL), placeholderImage: UIImage(named: "placeholder.png"))
+        photoImageView.sd_setImage(with: URL(string: character.photoURL ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
         nameLabel.text = character.name
         //favoriteImageView
     }

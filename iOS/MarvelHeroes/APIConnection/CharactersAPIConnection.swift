@@ -32,8 +32,9 @@ class CharactersAPIConnection: NSObject {
         Alamofire.request(url, method: .get, parameters: parameters).responseObject { (response: DataResponse<CharactersResponse>) in
             
             if let characters = response.result.value?.results {
-                CoreDataManager.save()
                 completion(characters, nil)
+            } else {
+                completion([], response.error)
             }
         }
     }
