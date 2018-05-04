@@ -30,6 +30,10 @@ class Character: NSManagedObject, Mappable {
     
     @NSManaged var id: NSNumber?
     @NSManaged var name: String?
+    @NSManaged var photoURL: String?
+
+    var photoPath: String?
+    var photoExtension: String?
     
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: CoreDataManager.managedObjectContext)
@@ -46,6 +50,10 @@ class Character: NSManagedObject, Mappable {
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
+        photoPath <- map["thumbnail.path"]
+        photoExtension <- map["thumbnail.extension"]
+        
+        photoURL = photoPath! + photoExtension!
     }
 
 }
