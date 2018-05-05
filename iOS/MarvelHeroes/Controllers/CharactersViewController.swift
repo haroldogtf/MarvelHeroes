@@ -22,8 +22,11 @@ class CharactersViewController: AZCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupCollectionView()
+        setupTabBar()
+        setupSearch()
+        
         fetchData()
-        loadSearch()
     }
     
     override func viewDidLayoutSubviews() {
@@ -31,12 +34,52 @@ class CharactersViewController: AZCollectionViewController {
         tabBar.invalidateIntrinsicContentSize()
     }
 
-    func loadSearch() {
-        searchController.searchResultsUpdater = self
+    func setupCollectionView() {
+        loadNextPageLoaderCell(nibName: "NextPageLoaderCell", cellIdentifier: "NextPageLoaderCell")
+    }
+
+    func setupTabBar() {
+        tabBar.delegate = self
+        tabBar.selectedItem = tabBar.items?.first
+    }
+
+    func setupSearch() {
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Heroes"
+        searchController.searchBar.tintColor = UIColor.white
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    
+    func getCharacters() {
+        CharactersAPIConnection.getCharacters() { (characters, error) in
+            self.characters.removeAll()
+            self.characters.append(contentsOf: characters)
+            self.didfetchData(resultCount: characters.count, haveMoreData: true)
+            
+            if let error = error {
+                self.errorDidOccured(error: error)
+            }
+        }
+    }
+    
+    func getFavoritesCharacters() {
+        self.characters.removeAll()
+        self.characters.append(contentsOf: CharacterCoreDataManager.fetchAllFavorites())
+        self.didfetchData(resultCount: characters.count, haveMoreData: false)
+    }
+    
+    func getCharactersSearch() {
+        CharactersAPIConnection.getCharacters(searchText: searchController.searchBar.text!) { (characters, error) in
+            self.characters.removeAll()
+            self.characters.append(contentsOf: characters)
+            self.didfetchData(resultCount: characters.count, haveMoreData: false)
+            
+            if let error = error {
+                self.errorDidOccured(error: error)
+            }
+        }
     }
     
 }
@@ -60,18 +103,18 @@ extension CharactersViewController {
     
     override func fetchData() {
         super.fetchData()
-        
-        loadNextPageLoaderCell(nibName: "NextPageLoaderCell", cellIdentifier: "NextPageLoaderCell")
 
-        CharactersAPIConnection.getCharacters() { (characters, error) in
-            self.characters.removeAll()
-            self.characters.append(contentsOf: characters)
-            self.didfetchData(resultCount: characters.count, haveMoreData: true)
-
-             if let error = error {
-                self.errorDidOccured(error: error)
+        if searchController.searchBar.text == "" {
+            switch tabBar.items?.index(of: tabBar.selectedItem!) {
+            case 0: getCharacters()
+            case 1: getFavoritesCharacters()
+            default: break
             }
+        } else {
+            self.getCharactersSearch()
         }
+        
+        collectionView?.reloadData()
     }
 
     override func fetchNextData() {
@@ -108,10 +151,24 @@ extension CharactersViewController {
 
 }
 
-extension CharactersViewController: UISearchResultsUpdating {
+extension CharactersViewController: UITabBarDelegate {
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        fetchData()
+        collectionView?.reloadData()
+    }
+    
+}
 
-    func updateSearchResults(for searchController: UISearchController) {
+extension CharactersViewController: UISearchBarDelegate {
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        fetchData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        fetchData()
     }
 
 }
@@ -157,7 +214,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             character.favorite = !character.favorite
             CoreDataManager.save()
 
-            sender.setImage(character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite"), for: .normal)
+            sender.setImage(character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite"), for: .normal)            
         }
     }
     

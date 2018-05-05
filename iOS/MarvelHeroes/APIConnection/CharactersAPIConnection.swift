@@ -18,21 +18,34 @@ class CharactersAPIConnection: NSObject {
             completion(characters, error)
         }
     }
-
+    
+    class func getCharacters(searchText: String, completion: @escaping (_ charecters: [Character], _ error: Error?) -> ()) {
+        getCharacters(offset: 0, searchText: searchText) { (total, characters, error) in
+            completion(characters, error)
+        }
+    }
+    
     class func getCharacters(offset: Int, completion: @escaping (_ total: Int, _ charecters: [Character], _ error: Error?) -> ()) {
+        getCharacters(offset: 0, searchText: "") { (total, characters, error) in
+            completion(total, characters, error)
+        }
+    }
+
+    class func getCharacters(offset: Int, searchText: String, completion: @escaping (_ total: Int, _ charecters: [Character], _ error: Error?) -> ()) {
 
         let apikey = "ecb64ae319c4b6027bf0adb6efba4fe0"
         let privatekey = "832cf4a6aa8afa1e4e8c389f7bccb96abffa3061"
         let ts = Date().timeIntervalSince1970.description
         let hash = Util.cryptoToMD5("\(ts)\(privatekey)\(apikey)")
         
-        let parameters: Parameters = [
+        var parameters: Parameters = [
             "apikey": apikey,
             "ts": ts,
             "hash": hash,
-            "offset": offset
+            "offset": offset,
         ]
-        
+        if !searchText.isEmpty { parameters["nameStartsWith"] = searchText }
+
         let url =  "https://gateway.marvel.com:443/v1/public/characters"
         
         Alamofire.request(url, method: .get, parameters: parameters).responseObject { (response: DataResponse<CharactersResponse>) in

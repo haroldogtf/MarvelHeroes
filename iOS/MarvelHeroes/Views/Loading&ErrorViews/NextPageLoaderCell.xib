@@ -20,21 +20,21 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL1-1B-UtG">
-                        <rect key="frame" x="150.5" y="12" width="75" height="21"/>
+                        <rect key="frame" x="125.5" y="12" width="75" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Oop-T8-uIh">
-                        <rect key="frame" x="226.5" y="12" width="20" height="20"/>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Oop-T8-uIh">
+                        <rect key="frame" x="210.5" y="12" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Oop-T8-uIh" firstAttribute="leading" secondItem="IL1-1B-UtG" secondAttribute="trailing" constant="1" id="Apd-Lw-mlx"/>
-                <constraint firstItem="IL1-1B-UtG" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Gnc-Lg-TrY"/>
-                <constraint firstItem="IL1-1B-UtG" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="MhU-Fh-A14"/>
-                <constraint firstItem="Oop-T8-uIh" firstAttribute="centerY" secondItem="IL1-1B-UtG" secondAttribute="centerY" id="lNn-tG-EBy"/>
+                <constraint firstItem="Oop-T8-uIh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="3Hu-O8-gah"/>
+                <constraint firstItem="IL1-1B-UtG" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="fSY-A9-q0K"/>
+                <constraint firstItem="Oop-T8-uIh" firstAttribute="leading" secondItem="IL1-1B-UtG" secondAttribute="trailing" constant="10" id="nWK-Hh-ZA7"/>
+                <constraint firstItem="IL1-1B-UtG" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" constant="-25" id="xXf-bz-aiw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
         </collectionViewCell>

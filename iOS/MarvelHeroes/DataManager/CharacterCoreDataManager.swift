@@ -29,5 +29,31 @@ class CharacterCoreDataManager: NSObject {
         
         return nil
     }
+    
+    class func fetchAll() -> [Character] {
+        return fetchAll(predicate: "")
+    }
+        
+    class func fetchAll(predicate: String) -> [Character] {
+        let managedObjectContext = CoreDataManager.managedObjectContext
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Character", in: managedObjectContext)
+        let fetchRequest =  NSFetchRequest<NSFetchRequestResult>()
+        fetchRequest.entity = entityDescription
+        fetchRequest.predicate = NSPredicate(format: predicate)
+        
+        do {
+            let array = try managedObjectContext.fetch(fetchRequest) as? [Character]
+            return array ?? []
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        return []
+    }
+    
+    class func fetchAllFavorites() -> [Character] {
+        return fetchAll(predicate: "favorite == 1")
+    }
 
 }
