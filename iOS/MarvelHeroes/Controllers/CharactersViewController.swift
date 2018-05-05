@@ -74,7 +74,7 @@ class CharactersViewController: AZCollectionViewController {
         CharactersAPIConnection.getCharacters(searchText: searchController.searchBar.text!) { (characters, error) in
             self.characters.removeAll()
             self.characters.append(contentsOf: characters)
-            self.didfetchData(resultCount: characters.count, haveMoreData: false)
+            self.didfetchData(resultCount: characters.count, haveMoreData: true)
             
             if let error = error {
                 self.errorDidOccured(error: error)
@@ -120,7 +120,7 @@ extension CharactersViewController {
     override func fetchNextData() {
         super.fetchNextData()
 
-        CharactersAPIConnection.getCharacters(offset: characters.count) { (total, characters, error) in
+        CharactersAPIConnection.getCharacters(offset: characters.count, searchText: searchController.searchBar.text!) { (total, characters, error) in
             self.characters.append(contentsOf: characters)
             if self.characters.count < total {
                 self.didfetchData(resultCount: characters.count, haveMoreData: true)
@@ -154,6 +154,7 @@ extension CharactersViewController {
 extension CharactersViewController: UITabBarDelegate {
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        searchController.searchBar.text = ""
         fetchData()
         collectionView?.reloadData()
     }

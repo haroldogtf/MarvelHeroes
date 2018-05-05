@@ -44,7 +44,7 @@ class CharactersAPIConnection: NSObject {
             "hash": hash,
             "offset": offset,
         ]
-        if !searchText.isEmpty { parameters["nameStartsWith"] = searchText }
+        if !searchText.isEmpty && searchText != "" { parameters["nameStartsWith"] = searchText }
 
         let url =  "https://gateway.marvel.com:443/v1/public/characters"
         
