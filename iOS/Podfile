@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'MarvelHeroes' do
   
@@ -7,6 +7,7 @@ target 'MarvelHeroes' do
 
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
+  pod 'AZCollectionViewController'
   pod 'CryptoSwift'
   pod 'SDWebImage'
 
