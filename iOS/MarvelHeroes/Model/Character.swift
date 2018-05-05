@@ -13,6 +13,7 @@ class CharactersResponse: Mappable {
     
     var code: Int?
     var status: String?
+    var total: Int?
     var results: [Character]?
     
     required init?(map: Map) { }
@@ -20,6 +21,7 @@ class CharactersResponse: Mappable {
     func mapping(map: Map) {
         code <- map["code"]
         status <- map["status"]
+        total <- map["data.total"]
         results <- map["data.results"]
     }
     

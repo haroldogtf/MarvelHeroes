@@ -6,23 +6,24 @@
 //  Copyright © 2018 Haroldo Gondim. All rights reserved.
 //
 
+import AZCollectionViewController
 import SDWebImage
 import UIKit
 
-class CharactersViewController: UIViewController {
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+class CharactersViewController: AZCollectionViewController {
+
     @IBOutlet weak var tabBar: UITabBar!
 
     let searchController = UISearchController(searchResultsController: nil)
 
     var characters: [Character] = []
+    var lastIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        fetchData()
         loadSearch()
-        loadCharacters()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,45 +38,72 @@ class CharactersViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-
-    func loadCharacters() {
-        CharactersAPIConnection.getCharacters(offset: 100) { (characters, error) in
-            self.characters = characters
-            self.collectionView.reloadData()
-        }
-    }
     
 }
 
-extension CharactersViewController: UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characters.count
-    }
+extension CharactersViewController {
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func AZCollectionView(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
         cell.fill(character: characters[indexPath.row])
 
         return cell
     }
-
+    
+    override func AZCollectionView(_ collectionView: UICollectionView, heightForRowAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 170, height: 170)
+    }
 }
 
-extension CharactersViewController: UICollectionViewDelegate {
+extension CharactersViewController {
+    
+    override func fetchData() {
+        super.fetchData()
+        
+        loadNextPageLoaderCell(nibName: "NextPageLoaderCell", cellIdentifier: "NextPageLoaderCell")
+
+        CharactersAPIConnection.getCharacters(offset: 0) { (total, characters, error) in
+            self.characters.removeAll()
+            self.characters.append(contentsOf: characters)
+            self.didfetchData(resultCount: characters.count, haveMoreData: true)
+
+             if let error = error {
+                self.errorDidOccured(error: error)
+            }
+        }
+    }
+
+    override func fetchNextData() {
+        super.fetchNextData()
+
+        CharactersAPIConnection.getCharacters(offset: characters.count) { (total, characters, error) in
+            self.characters.append(contentsOf: characters)
+            if self.characters.count < total {
+                self.didfetchData(resultCount: characters.count, haveMoreData: true)
+            
+            } else {
+                self.didfetchData(resultCount: characters.count, haveMoreData: false)
+            }
+
+            if let error = error {
+                self.errorDidOccured(error: error)
+            }
+        }
+    }
     
 }
 
-extension CharactersViewController: UICollectionViewDelegateFlowLayout {
+extension CharactersViewController {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
+
         let cellWidth: CGFloat = 170.0
-        
+
         let numberOfCells = floor(view.frame.size.width / cellWidth)
         let edgeInsets = (view.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
-        
-        return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+
+        return UIEdgeInsetsMake(10, edgeInsets - 5, 0, edgeInsets - 5)
     }
 
 }
