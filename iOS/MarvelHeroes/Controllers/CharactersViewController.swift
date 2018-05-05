@@ -7,6 +7,7 @@
 //
 
 import AZCollectionViewController
+import Reachability
 import SDWebImage
 import UIKit
 
@@ -15,6 +16,8 @@ class CharactersViewController: AZCollectionViewController {
     @IBOutlet weak var tabBar: UITabBar!
 
     let searchController = UISearchController(searchResultsController: nil)
+    
+    let reachability = Reachability()!
 
     var characters: [Character] = []
     var lastIndex = 0
@@ -22,6 +25,7 @@ class CharactersViewController: AZCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadNewtworkNotification()
         setupCollectionView()
         setupTabBar()
         setupSearch()
@@ -29,11 +33,40 @@ class CharactersViewController: AZCollectionViewController {
         fetchData()
     }
     
+    deinit {
+        unloadNewtworkNotification()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tabBar.invalidateIntrinsicContentSize()
     }
 
+    func loadNewtworkNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(_:)), name: .reachabilityChanged, object: reachability)
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Could not start reachability notifier")
+        }
+    }
+    
+    func unloadNewtworkNotification() {
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+    }
+    
+    @objc func reachabilityChanged(_ notification: Notification) {
+        let reachability = notification.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi, .cellular:
+            fetchData()
+            collectionView?.reloadData()
+        default: break
+        }
+    }
+    
     func setupCollectionView() {
         loadNextPageLoaderCell(nibName: "NextPageLoaderCell", cellIdentifier: "NextPageLoaderCell")
     }
@@ -111,7 +144,7 @@ extension CharactersViewController {
             default: break
             }
         } else {
-            self.getCharactersSearch()
+            getCharactersSearch()
         }
         
         collectionView?.reloadData()

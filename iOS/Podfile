@@ -9,6 +9,7 @@ target 'MarvelHeroes' do
   pod 'AlamofireObjectMapper'
   pod 'AZCollectionViewController'
   pod 'CryptoSwift'
+  pod 'ReachabilitySwift'
   pod 'SDWebImage'
 
 end
