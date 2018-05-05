@@ -100,6 +100,15 @@
 			path = "Loading&ErrorViews";
 			sourceTree = "<group>";
 		};
+		63B45E3A209DF6A90059AEC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63B45E39209DE5B70059AEC3 /* Loading&ErrorViews */,
+				63C15CDB20979F0500698998 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		63C15CCB20979F0500698998 = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				63C15CD720979F0500698998 /* AppDelegate.swift */,
-				63C15CDB20979F0500698998 /* Main.storyboard */,
+				63B45E3A209DF6A90059AEC3 /* Views */,
 				63C15CED2097AF1400698998 /* Controllers */,
 				63C15CF52097AFAA00698998 /* APIConnection */,
 				633F2689209A8DF500D9C1C3 /* DataManager */,
@@ -136,11 +145,11 @@
 		63C15CEC2097AE8300698998 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63C15CE620979F0700698998 /* Info.plist */,
 				63C15CE120979F0700698998 /* Assets.xcassets */,
 				63C15CE320979F0700698998 /* LaunchScreen.storyboard */,
 				63C15CDE20979F0500698998 /* MarvelHeroes.xcdatamodeld */,
 				63B45E26209D31860059AEC3 /* hero.ttf */,
-				63C15CE620979F0700698998 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -148,7 +157,6 @@
 		63C15CED2097AF1400698998 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				63B45E39209DE5B70059AEC3 /* Loading&ErrorViews */,
 				63C15CD920979F0500698998 /* CharactersViewController.swift */,
 			);
 			path = Controllers;

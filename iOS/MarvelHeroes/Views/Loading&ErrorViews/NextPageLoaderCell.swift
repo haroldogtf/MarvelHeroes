@@ -9,13 +9,8 @@ import UIKit
 
 class NextPageLoaderCell: UICollectionViewCell {
 
-    override func prepareForReuse() {
-        
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }
