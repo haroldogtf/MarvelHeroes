@@ -13,6 +13,12 @@ import UIKit
 
 class CharactersAPIConnection: NSObject {
 
+    class func getCharacters(completion: @escaping (_ result: [Character], _ error: Error?) -> ()) {
+        getCharacters(offset: 0) { (total, result, error) in
+            completion(result, error)
+        }
+    }
+
     class func getCharacters(offset: Int, completion: @escaping (_ total: Int, _ result: [Character], _ error: Error?) -> ()) {
 
         let apikey = "ecb64ae319c4b6027bf0adb6efba4fe0"

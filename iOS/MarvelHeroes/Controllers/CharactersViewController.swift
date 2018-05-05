@@ -63,7 +63,7 @@ extension CharactersViewController {
         
         loadNextPageLoaderCell(nibName: "NextPageLoaderCell", cellIdentifier: "NextPageLoaderCell")
 
-        CharactersAPIConnection.getCharacters(offset: 0) { (total, characters, error) in
+        CharactersAPIConnection.getCharacters() { (characters, error) in
             self.characters.removeAll()
             self.characters.append(contentsOf: characters)
             self.didfetchData(resultCount: characters.count, haveMoreData: true)
