@@ -19,17 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ozL-ME-sPI">
-                                <rect key="frame" x="67.666666666666686" y="292" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="0sG-Ib-bJF"/>
-                                    <constraint firstAttribute="width" constant="240" id="Eqx-rD-mgC"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="375" height="584"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.84313243627548218" green="0.24834486842155457" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ozL-ME-sPI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="OUH-RE-3t8"/>
-                            <constraint firstItem="ozL-ME-sPI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iJj-4Z-RuN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ozL-ME-sPI" secondAttribute="bottom" constant="150" id="L6j-13-Q2b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ozL-ME-sPI" secondAttribute="trailing" id="Xaa-xu-JqQ"/>
+                            <constraint firstItem="ozL-ME-sPI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iil-ex-SJs"/>
+                            <constraint firstItem="ozL-ME-sPI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j8e-NC-kZx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
