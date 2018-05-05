@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ozL-ME-sPI">
-                                <rect key="frame" x="0.0" y="44" width="375" height="584"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.84313243627548218" green="0.24834486842155457" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ozL-ME-sPI" secondAttribute="bottom" constant="150" id="L6j-13-Q2b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ozL-ME-sPI" secondAttribute="bottom" id="L6j-13-Q2b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ozL-ME-sPI" secondAttribute="trailing" id="Xaa-xu-JqQ"/>
                             <constraint firstItem="ozL-ME-sPI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iil-ex-SJs"/>
                             <constraint firstItem="ozL-ME-sPI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j8e-NC-kZx"/>

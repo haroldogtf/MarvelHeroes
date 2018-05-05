@@ -12,7 +12,8 @@ import UIKit
 class CharactersViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var tabBar: UITabBar!
+
     let searchController = UISearchController(searchResultsController: nil)
 
     var characters: [Character] = []
@@ -22,6 +23,11 @@ class CharactersViewController: UIViewController {
         
         loadSearch()
         loadCharacters()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tabBar.invalidateIntrinsicContentSize()
     }
 
     func loadSearch() {
@@ -33,7 +39,7 @@ class CharactersViewController: UIViewController {
     }
 
     func loadCharacters() {
-        CharactersAPIConnection.getCharacters(offset: 10) { (characters, error) in
+        CharactersAPIConnection.getCharacters(offset: 100) { (characters, error) in
             self.characters = characters
             self.collectionView.reloadData()
         }
