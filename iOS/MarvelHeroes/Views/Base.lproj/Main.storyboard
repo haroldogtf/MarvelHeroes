@@ -75,34 +75,38 @@
                                                         <constraint firstAttribute="width" constant="144" id="mL5-KP-iN4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star-favorite" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-mF-zQF">
-                                                    <rect key="frame" x="141" y="139.33333333333334" width="17" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="17" id="EWy-BS-gJr"/>
-                                                        <constraint firstAttribute="height" constant="17" id="IET-AJ-RhX"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMP-Po-rlF">
-                                                    <rect key="frame" x="12" y="137.66666666666666" width="127" height="24.333333333333343"/>
+                                                    <rect key="frame" x="12" y="137.66666666666666" width="124" height="24.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ty-ve-kqd">
+                                                    <rect key="frame" x="138" y="141" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="0JW-ii-TZt"/>
+                                                        <constraint firstAttribute="width" constant="18" id="Ztx-S7-pv9"/>
+                                                    </constraints>
+                                                    <state key="normal" image="star-nofavorite"/>
+                                                    <connections>
+                                                        <action selector="favoriteAction:" destination="vVz-o0-aDi" eventType="touchUpInside" id="Q0c-iQ-oR9"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.18823529411764706" alpha="0.80356378424657537" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="uMP-Po-rlF" secondAttribute="bottom" id="GCD-Rn-BOa"/>
+                                            <constraint firstItem="4ty-ve-kqd" firstAttribute="leading" secondItem="uMP-Po-rlF" secondAttribute="trailing" constant="2" id="IH3-BW-PT2"/>
                                             <constraint firstItem="NyJ-WN-ccu" firstAttribute="centerX" secondItem="vVz-o0-aDi" secondAttribute="centerX" id="ISq-pt-CUc"/>
                                             <constraint firstItem="uMP-Po-rlF" firstAttribute="top" secondItem="NyJ-WN-ccu" secondAttribute="bottom" constant="10" id="WVY-JF-s02"/>
                                             <constraint firstItem="uMP-Po-rlF" firstAttribute="leading" secondItem="vVz-o0-aDi" secondAttribute="leadingMargin" constant="4" id="YTN-68-FEk"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="YEn-mF-zQF" secondAttribute="trailing" constant="4" id="m3u-l4-USV"/>
+                                            <constraint firstItem="4ty-ve-kqd" firstAttribute="centerY" secondItem="uMP-Po-rlF" secondAttribute="centerY" id="m5G-zb-bqA"/>
                                             <constraint firstItem="NyJ-WN-ccu" firstAttribute="centerY" secondItem="vVz-o0-aDi" secondAttribute="centerY" constant="-15" id="nYV-pX-4au"/>
-                                            <constraint firstItem="YEn-mF-zQF" firstAttribute="centerY" secondItem="uMP-Po-rlF" secondAttribute="centerY" constant="-2" id="weh-O1-ePJ"/>
-                                            <constraint firstItem="YEn-mF-zQF" firstAttribute="leading" secondItem="uMP-Po-rlF" secondAttribute="trailing" constant="2" id="zlV-sm-qv4"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="4ty-ve-kqd" secondAttribute="trailing" constant="6" id="zF9-yp-mBu"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="favoriteImageView" destination="YEn-mF-zQF" id="gu2-R0-Zca"/>
+                                            <outlet property="favoriteButton" destination="4ty-ve-kqd" id="isb-ZE-Wjl"/>
                                             <outlet property="nameLabel" destination="uMP-Po-rlF" id="C1h-dz-s75"/>
                                             <outlet property="photoImageView" destination="NyJ-WN-ccu" id="0aM-S9-v97"/>
                                         </connections>
@@ -156,5 +160,6 @@
     <resources>
         <image name="nick-fury" width="32" height="32"/>
         <image name="star-favorite" width="32" height="32"/>
+        <image name="star-nofavorite" width="32" height="32"/>
     </resources>
 </document>

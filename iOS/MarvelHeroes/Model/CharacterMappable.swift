@@ -1,5 +1,5 @@
 //
-//  Character.swift
+//  CharacterMappable.swift
 //  MarvelHeroes
 //
 //  Created by Haroldo Gondim on 02/05/18.
@@ -14,7 +14,7 @@ class CharactersResponse: Mappable {
     var code: Int?
     var status: String?
     var total: Int?
-    var results: [Character]?
+    var results: [CharacterMappable]?
     
     required init?(map: Map) { }
     
@@ -27,27 +27,16 @@ class CharactersResponse: Mappable {
     
 }
 
-@objc(Character)
-class Character: NSManagedObject, Mappable {
+class CharacterMappable: Mappable {
     
-    @NSManaged var id: NSNumber?
-    @NSManaged var name: String?
-    @NSManaged var photoURL: String?
+    var id: Int?
+    var name: String?
+    var photoURL: String?
 
     private var photoPath: String?
     private var photoExtension: String?
     
-    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: CoreDataManager.managedObjectContext)
-    }
-    
-    required init?(map: Map) {
-        let ctx = CoreDataManager.managedObjectContext
-        let entity = NSEntityDescription.entity(forEntityName: "Character", in: ctx)
-        super.init(entity: entity!, insertInto: ctx)
-        
-        mapping(map: map)
-    }
+    required init?(map: Map) { }
 
     func mapping(map: Map) {
         id <- map["id"]

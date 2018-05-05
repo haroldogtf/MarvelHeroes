@@ -119,9 +119,11 @@ extension CharactersViewController: UISearchResultsUpdating {
 class CharacterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
+    var character: Character?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -143,9 +145,20 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     }
 
     func fill(character: Character) {
+        self.character = character
+        
         photoImageView.sd_setImage(with: URL(string: character.photoURL ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholder-heroes"))
         nameLabel.text = character.name
-        favoriteImageView.image = #imageLiteral(resourceName: "star-nofavorite")
+        favoriteButton.setImage(character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite"), for: .normal)
     }
 
+    @IBAction func favoriteAction(_ sender: UIButton) {
+        if let character = character {
+            character.favorite = !character.favorite
+            CoreDataManager.save()
+
+            sender.setImage(character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite"), for: .normal)
+        }
+    }
+    
 }
