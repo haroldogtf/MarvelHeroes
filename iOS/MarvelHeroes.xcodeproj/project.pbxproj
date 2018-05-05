@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		633F2685209A88C600D9C1C3 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F2684209A88C600D9C1C3 /* Character.swift */; };
 		633F2688209A8DF100D9C1C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F2687209A8DF100D9C1C3 /* CoreDataManager.swift */; };
+		63B45E27209D31860059AEC3 /* hero.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63B45E26209D31860059AEC3 /* hero.ttf */; };
 		63C15CD820979F0500698998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C15CD720979F0500698998 /* AppDelegate.swift */; };
 		63C15CDA20979F0500698998 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C15CD920979F0500698998 /* CharactersViewController.swift */; };
 		63C15CDD20979F0500698998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C15CDB20979F0500698998 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		5AA205E61B616167644A78DB /* Pods-MarvelHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		633F2684209A88C600D9C1C3 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		633F2687209A8DF100D9C1C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		63B45E26209D31860059AEC3 /* hero.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hero.ttf; sourceTree = "<group>"; };
 		63C15CD420979F0500698998 /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C15CD720979F0500698998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63C15CD920979F0500698998 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				63C15CE120979F0700698998 /* Assets.xcassets */,
 				63C15CE320979F0700698998 /* LaunchScreen.storyboard */,
 				63C15CDE20979F0500698998 /* MarvelHeroes.xcdatamodeld */,
+				63B45E26209D31860059AEC3 /* hero.ttf */,
 				63C15CE620979F0700698998 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -216,6 +219,7 @@
 			files = (
 				63C15CE520979F0700698998 /* LaunchScreen.storyboard in Resources */,
 				63C15CE220979F0700698998 /* Assets.xcassets in Resources */,
+				63B45E27209D31860059AEC3 /* hero.ttf in Resources */,
 				63C15CDD20979F0500698998 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Q6HQ96RC4;
 				INFOPLIST_FILE = "$(SRCROOT)/MarvelHeroes/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Q6HQ96RC4;
 				INFOPLIST_FILE = "$(SRCROOT)/MarvelHeroes/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

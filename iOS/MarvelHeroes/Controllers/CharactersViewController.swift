@@ -12,13 +12,24 @@ import UIKit
 class CharactersViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let searchController = UISearchController(searchResultsController: nil)
 
     var characters: [Character] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         loadCharacters()
+        loadSearch()
+        loadCharacters()
+    }
+
+    func loadSearch() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Heroes"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     func loadCharacters() {
@@ -63,6 +74,14 @@ extension CharactersViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
+extension CharactersViewController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+
+    }
+
+}
+
 class CharacterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
@@ -90,9 +109,9 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     }
 
     func fill(character: Character) {
-        photoImageView.sd_setImage(with: URL(string: character.photoURL ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+        photoImageView.sd_setImage(with: URL(string: character.photoURL ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholder-heroes"))
         nameLabel.text = character.name
-        //favoriteImageView
+        favoriteImageView.image = #imageLiteral(resourceName: "star-nofavorite")
     }
 
 }

@@ -10,71 +10,68 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="hero.ttf">
+            <string>Hero</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Characters View Controller-->
+        <!--Marvel Heroes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CharactersViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="671.66666666666674"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tl4-PU-9jM">
-                                <rect key="frame" x="0.0" y="729" width="375" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="eat-QL-45o"/>
-                                    <tabBarItem systemItem="more" id="Uv6-KO-d7Q"/>
-                                </items>
-                            </tabBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eMo-S1-6ij">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="588.66666666666663"/>
+                                <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UOU-OJ-yjY">
-                                    <size key="itemSize" width="170" height="175"/>
+                                    <size key="itemSize" width="170" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCollectionViewCell" id="vVz-o0-aDi" customClass="CharacterCollectionViewCell" customModule="MarvelHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="175"/>
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCollectionViewCell" id="vVz-o0-aDi" customClass="CharacterCollectionViewCell" customModule="MarvelHeroes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="170" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NyJ-WN-ccu">
-                                                    <rect key="frame" x="13" y="10" width="144" height="115"/>
+                                                    <rect key="frame" x="13" y="12.666666666666671" width="144" height="115"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="115" id="bbG-uR-VNg"/>
                                                         <constraint firstAttribute="width" constant="144" id="mL5-KP-iN4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-mF-zQF">
-                                                    <rect key="frame" x="122" y="135" width="30" height="30"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star-favorite" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-mF-zQF">
+                                                    <rect key="frame" x="141" y="139.33333333333334" width="17" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="EWy-BS-gJr"/>
-                                                        <constraint firstAttribute="height" constant="30" id="IET-AJ-RhX"/>
+                                                        <constraint firstAttribute="width" constant="17" id="EWy-BS-gJr"/>
+                                                        <constraint firstAttribute="height" constant="17" id="IET-AJ-RhX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMP-Po-rlF">
-                                                    <rect key="frame" x="18" y="135" width="102" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="12" y="137.66666666666666" width="127" height="24.333333333333343"/>
+                                                    <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.18823529411764706" alpha="0.80356378424657537" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="uMP-Po-rlF" secondAttribute="bottom" constant="10" id="GCD-Rn-BOa"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="uMP-Po-rlF" secondAttribute="bottom" id="GCD-Rn-BOa"/>
                                             <constraint firstItem="NyJ-WN-ccu" firstAttribute="centerX" secondItem="vVz-o0-aDi" secondAttribute="centerX" id="ISq-pt-CUc"/>
-                                            <constraint firstItem="YEn-mF-zQF" firstAttribute="top" secondItem="NyJ-WN-ccu" secondAttribute="bottom" constant="10" id="QrS-Hj-l95"/>
                                             <constraint firstItem="uMP-Po-rlF" firstAttribute="top" secondItem="NyJ-WN-ccu" secondAttribute="bottom" constant="10" id="WVY-JF-s02"/>
-                                            <constraint firstItem="uMP-Po-rlF" firstAttribute="leading" secondItem="vVz-o0-aDi" secondAttribute="leadingMargin" constant="10" id="YTN-68-FEk"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="YEn-mF-zQF" secondAttribute="trailing" constant="10" id="m3u-l4-USV"/>
-                                            <constraint firstItem="NyJ-WN-ccu" firstAttribute="centerY" secondItem="vVz-o0-aDi" secondAttribute="centerY" constant="-20" id="nYV-pX-4au"/>
+                                            <constraint firstItem="uMP-Po-rlF" firstAttribute="leading" secondItem="vVz-o0-aDi" secondAttribute="leadingMargin" constant="4" id="YTN-68-FEk"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="YEn-mF-zQF" secondAttribute="trailing" constant="4" id="m3u-l4-USV"/>
+                                            <constraint firstItem="NyJ-WN-ccu" firstAttribute="centerY" secondItem="vVz-o0-aDi" secondAttribute="centerY" constant="-15" id="nYV-pX-4au"/>
+                                            <constraint firstItem="YEn-mF-zQF" firstAttribute="centerY" secondItem="uMP-Po-rlF" secondAttribute="centerY" constant="-2" id="weh-O1-ePJ"/>
                                             <constraint firstItem="YEn-mF-zQF" firstAttribute="leading" secondItem="uMP-Po-rlF" secondAttribute="trailing" constant="2" id="zlV-sm-qv4"/>
                                         </constraints>
                                         <connections>
@@ -89,6 +86,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="DVb-pS-hIo"/>
                                 </connections>
                             </collectionView>
+                            <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tl4-PU-9jM">
+                                <rect key="frame" x="0.0" y="588.66666666666663" width="375" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="Characters" image="nick-fury" id="Uv6-KO-d7Q"/>
+                                    <tabBarItem title="Favorites" image="star-favorite" id="eat-QL-45o"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedImageTintColor" red="1" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -96,13 +109,13 @@
                             <constraint firstItem="tl4-PU-9jM" firstAttribute="top" secondItem="eMo-S1-6ij" secondAttribute="bottom" id="Dl7-lk-3Fq"/>
                             <constraint firstItem="eMo-S1-6ij" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IJE-di-kwo"/>
                             <constraint firstItem="eMo-S1-6ij" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KP3-wT-xaM"/>
-                            <constraint firstItem="tl4-PU-9jM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hDU-JD-bLC"/>
+                            <constraint firstItem="tl4-PU-9jM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="hDU-JD-bLC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eMo-S1-6ij" secondAttribute="trailing" id="qiG-Hh-jkK"/>
-                            <constraint firstItem="tl4-PU-9jM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sR4-Oh-6a3"/>
+                            <constraint firstItem="tl4-PU-9jM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sR4-Oh-6a3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="d8u-UK-2cp"/>
+                    <navigationItem key="navigationItem" title="Marvel Heroes" id="7c8-2C-8XV"/>
                     <connections>
                         <outlet property="collectionView" destination="eMo-S1-6ij" id="SxU-sF-rOp"/>
                     </connections>
@@ -116,9 +129,18 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xyP-Pv-pIq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RBD-d5-xEZ">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="RBD-d5-xEZ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -130,4 +152,8 @@
             <point key="canvasLocation" x="141.59999999999999" y="746.17691154422789"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nick-fury" width="32" height="32"/>
+        <image name="star-favorite" width="32" height="32"/>
+    </resources>
 </document>
