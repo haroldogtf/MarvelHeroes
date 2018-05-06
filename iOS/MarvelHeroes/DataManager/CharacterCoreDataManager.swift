@@ -40,6 +40,7 @@ class CharacterCoreDataManager: NSObject {
         let fetchRequest =  NSFetchRequest<NSFetchRequestResult>()
         fetchRequest.entity = entityDescription
         fetchRequest.predicate = NSPredicate(format: predicate)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         do {
             let array = try managedObjectContext.fetch(fetchRequest) as? [Character]
