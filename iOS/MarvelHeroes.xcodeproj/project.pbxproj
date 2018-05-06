@@ -10,7 +10,6 @@
 		633F2685209A88C600D9C1C3 /* CharacterMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F2684209A88C600D9C1C3 /* CharacterMappable.swift */; };
 		633F2688209A8DF100D9C1C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F2687209A8DF100D9C1C3 /* CoreDataManager.swift */; };
 		63B45E27209D31860059AEC3 /* hero.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63B45E26209D31860059AEC3 /* hero.ttf */; };
-		63B45E34209DE5B00059AEC3 /* NextPageLoaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B45E2F209DE5B00059AEC3 /* NextPageLoaderCell.swift */; };
 		63B45E35209DE5B00059AEC3 /* NextPageLoaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B45E30209DE5B00059AEC3 /* NextPageLoaderCell.xib */; };
 		63B45E36209DE5B00059AEC3 /* NoResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B45E31209DE5B00059AEC3 /* NoResultView.xib */; };
 		63B45E37209DE5B00059AEC3 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B45E32209DE5B00059AEC3 /* ErrorView.xib */; };
@@ -34,7 +33,6 @@
 		633F2684209A88C600D9C1C3 /* CharacterMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMappable.swift; sourceTree = "<group>"; };
 		633F2687209A8DF100D9C1C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		63B45E26209D31860059AEC3 /* hero.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hero.ttf; sourceTree = "<group>"; };
-		63B45E2F209DE5B00059AEC3 /* NextPageLoaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextPageLoaderCell.swift; sourceTree = "<group>"; };
 		63B45E30209DE5B00059AEC3 /* NextPageLoaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextPageLoaderCell.xib; sourceTree = "<group>"; };
 		63B45E31209DE5B00059AEC3 /* NoResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultView.xib; sourceTree = "<group>"; };
 		63B45E32209DE5B00059AEC3 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 			children = (
 				63B45E32209DE5B00059AEC3 /* ErrorView.xib */,
 				63B45E33209DE5B00059AEC3 /* LoadingView.xib */,
-				63B45E2F209DE5B00059AEC3 /* NextPageLoaderCell.swift */,
 				63B45E30209DE5B00059AEC3 /* NextPageLoaderCell.xib */,
 				63B45E31209DE5B00059AEC3 /* NoResultView.xib */,
 			);
@@ -329,7 +326,6 @@
 				633F2685209A88C600D9C1C3 /* CharacterMappable.swift in Sources */,
 				63C15CD820979F0500698998 /* AppDelegate.swift in Sources */,
 				63C15CE020979F0500698998 /* MarvelHeroes.xcdatamodeld in Sources */,
-				63B45E34209DE5B00059AEC3 /* NextPageLoaderCell.swift in Sources */,
 				63C15CF42097AFA700698998 /* CharactersAPIConnection.swift in Sources */,
 				633F2688209A8DF100D9C1C3 /* CoreDataManager.swift in Sources */,
 				63B45E3C209E37AA0059AEC3 /* CharacterCoreDataManager.swift in Sources */,

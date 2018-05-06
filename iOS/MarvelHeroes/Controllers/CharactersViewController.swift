@@ -61,8 +61,7 @@ class CharactersViewController: AZCollectionViewController {
         
         switch reachability.connection {
         case .wifi, .cellular:
-            fetchData()
-            collectionView?.reloadData()
+            fetchNextData()
         default: break
         }
     }
@@ -107,7 +106,7 @@ class CharactersViewController: AZCollectionViewController {
         CharactersAPIConnection.getCharacters(searchText: searchController.searchBar.text!) { (characters, error) in
             self.characters.removeAll()
             self.characters.append(contentsOf: characters)
-            self.didfetchData(resultCount: characters.count, haveMoreData: true)
+            self.didfetchData(resultCount: characters.count, haveMoreData: false)
             
             if let error = error {
                 self.errorDidOccured(error: error)
@@ -127,6 +126,9 @@ extension CharactersViewController {
     override func AZCollectionView(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
+        print(indexPath.row)
+        print(characters.count)
+
         cell.fill(character: characters[indexPath.row])
 
         return cell

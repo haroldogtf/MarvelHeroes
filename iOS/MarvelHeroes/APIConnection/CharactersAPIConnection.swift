@@ -65,6 +65,7 @@ class CharactersAPIConnection: NSObject {
                     character?.id = Int32(id)
                     character?.name = result.name
                     character?.photoURL = result.photoURL
+                    character?.about = result.description_
                     
                     characters.append(character!)
                 }
