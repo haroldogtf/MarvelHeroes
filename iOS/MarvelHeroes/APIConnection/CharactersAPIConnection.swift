@@ -12,6 +12,22 @@ import ObjectMapper
 import UIKit
 
 class CharactersAPIConnection: NSObject {
+    
+    class func authentication() -> Parameters {
+
+        let apikey = "ecb64ae319c4b6027bf0adb6efba4fe0"
+        let privatekey = "832cf4a6aa8afa1e4e8c389f7bccb96abffa3061"
+        let ts = Date().timeIntervalSince1970.description
+        let hash = Util.cryptoToMD5("\(ts)\(privatekey)\(apikey)")
+        
+        let parameters: Parameters = [
+            "apikey": apikey,
+            "ts": ts,
+            "hash": hash,
+            ]
+
+        return parameters
+    }
 
     class func getCharacters(completion: @escaping (_ charecters: [Character], _ error: Error?) -> ()) {
         getCharacters(offset: 0) { (total, characters, error) in
@@ -33,17 +49,8 @@ class CharactersAPIConnection: NSObject {
 
     class func getCharacters(offset: Int, searchText: String, completion: @escaping (_ total: Int, _ charecters: [Character], _ error: Error?) -> ()) {
 
-        let apikey = "ecb64ae319c4b6027bf0adb6efba4fe0"
-        let privatekey = "832cf4a6aa8afa1e4e8c389f7bccb96abffa3061"
-        let ts = Date().timeIntervalSince1970.description
-        let hash = Util.cryptoToMD5("\(ts)\(privatekey)\(apikey)")
-        
-        var parameters: Parameters = [
-            "apikey": apikey,
-            "ts": ts,
-            "hash": hash,
-            "offset": offset,
-        ]
+        var parameters = authentication()
+        parameters["offset"] = offset
         if !searchText.isEmpty && searchText != "" { parameters["nameStartsWith"] = searchText }
 
         let url =  "https://gateway.marvel.com:443/v1/public/characters"
@@ -78,5 +85,45 @@ class CharactersAPIConnection: NSObject {
             }
         }
     }
+    
+    class func getDetail(kind: String, character: Character, completion: @escaping (_ datails: [Detail], _ error: Error?) -> ()) {
+        
+        let parameters = authentication()
 
+        let url = "https://gateway.marvel.com:443/v1/public/characters/" + String(character.id) + "/" + kind
+
+
+        Alamofire.request(url, method: .get, parameters: parameters).responseObject { (response: DataResponse<DetailResponse>) in
+            
+            if let results = response.result.value?.results {
+                completion(results, nil)
+            } else {
+                completion([], response.error)
+            }
+        }
+    }
+    
+    class func getComics(character: Character, completion: @escaping (_ datails: [Detail], _ error: Error?) -> ()) {
+        getDetail(kind: "comics", character: character) { (details, error) in
+            completion(details, error)
+        }
+    }
+
+    class func getSeries(character: Character, completion: @escaping (_ datails: [Detail], _ error: Error?) -> ()) {
+        getDetail(kind: "series", character: character) { (details, error) in
+            completion(details, error)
+        }
+    }
+    
+    class func getStories(character: Character, completion: @escaping (_ datails: [Detail], _ error: Error?) -> ()) {
+        getDetail(kind: "stories", character: character) { (details, error) in
+            completion(details, error)
+        }
+    }
+    
+    class func getEvents(character: Character, completion: @escaping (_ datails: [Detail], _ error: Error?) -> ()) {
+        getDetail(kind: "events", character: character) { (details, error) in
+            completion(details, error)
+        }
+    }
 }

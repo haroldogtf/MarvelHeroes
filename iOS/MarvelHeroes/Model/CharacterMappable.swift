@@ -51,20 +51,37 @@ class CharacterMappable: Mappable {
 
 }
 
-class Item: Mappable {
+class DetailResponse: Mappable {
 
-    var available: Int?
-    var returned: Int?
-    var collectionURI: String?
-    //var items: [String]?
+    var code: Int?
+    var status: String?
+    var results: [Detail]?
 
+    
     required init?(map: Map) { }
     
     func mapping(map: Map) {
-        available <- map["available"]
-        returned <- map["returned"]
-        collectionURI <- map["collectionURI"]
-        //items <- map["items"]
+        code <- map["code"]
+        status <- map["status"]
+        results <- map["data.results"]
     }
 
+}
+
+class Detail: Mappable {
+    
+    var photoURL: String?
+    
+    private var photoPath: String?
+    private var photoExtension: String?
+    
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
+        photoPath <- map["thumbnail.path"]
+        photoExtension <- map["thumbnail.extension"]
+        
+        photoURL = (photoPath ?? "") + "." + (photoExtension ?? "")
+    }
+    
 }
