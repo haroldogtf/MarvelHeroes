@@ -12,7 +12,6 @@ class Constants: NSObject {
 
     static let COMICS = 1
     static let SERIES = 2
-    static let STORIES = 3
-    static let EVENTS = 4
+    static let EVENTS = 3
 
 }

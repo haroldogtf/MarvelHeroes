@@ -19,17 +19,22 @@ class CharacterDetailViewController: UIViewController {
 
     @IBOutlet weak var comicsLabel: UILabel!
     @IBOutlet weak var seriesLabel: UILabel!
-    @IBOutlet weak var storiesLabel: UILabel!
     @IBOutlet weak var eventsLabel: UILabel!
 
     @IBOutlet weak var comicsCollectionView: UICollectionView!
     @IBOutlet weak var seriesCollectionView: UICollectionView!
-    @IBOutlet weak var storiesCollectionView: UICollectionView!
     @IBOutlet weak var eventsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var comicsLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var seriesLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var eventsLabelHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var comicsCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var seriesCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var eventsCollectionViewHeight: NSLayoutConstraint!
+    
     var comicsImagesURL: [String] = []
     var seriesImagesURL: [String] = []
-    var storiesImagesURL: [String] = []
     var eventsImagesURL: [String] = []
 
     var character: Character!
@@ -60,31 +65,63 @@ class CharacterDetailViewController: UIViewController {
     }
     
     func setupCollectionViews() {
+        comicsLabelHeight.constant = 0
+        seriesLabelHeight.constant = 0
+        eventsLabelHeight.constant = 0
+        
+        comicsCollectionViewHeight.constant = 0
+        seriesCollectionViewHeight.constant = 0
+        eventsCollectionViewHeight.constant = 0
+        
         setup(collectionView: comicsCollectionView)
         setup(collectionView: seriesCollectionView)
-        setup(collectionView: storiesCollectionView)
         setup(collectionView: eventsCollectionView)
     }
     
     func fetchData() {
         CharactersAPIConnection.getComics(character: character) { (details, error) in
-            for detail in details { self.comicsImagesURL.append(detail.photoURL ?? "") }
-            self.comicsCollectionView.reloadData()
+            
+            if details.count > 0 {
+                
+                for detail in details {
+                    self.comicsImagesURL.append(detail.photoURL ?? "")
+                }
+        
+                self.comicsLabelHeight.constant = 19
+                self.comicsCollectionViewHeight.constant = 300
+                
+                self.comicsCollectionView.reloadData()
+            }
         }
         
         CharactersAPIConnection.getSeries(character: character) { (details, error) in
-            for detail in details { self.seriesImagesURL.append(detail.photoURL ?? "") }
-            self.seriesCollectionView.reloadData()
-        }
-        
-        CharactersAPIConnection.getStories(character: character) { (details, error) in
-            for detail in details { self.storiesImagesURL.append(detail.photoURL ?? "") }
-            self.storiesCollectionView.reloadData()
+            
+            if details.count > 0 {
+
+                for detail in details {
+                    self.seriesImagesURL.append(detail.photoURL ?? "")
+                }
+                
+                self.seriesLabelHeight.constant = 19
+                self.seriesCollectionViewHeight.constant = 300
+
+                self.seriesCollectionView.reloadData()
+            }
         }
         
         CharactersAPIConnection.getEvents(character: character) { (details, error) in
-            for detail in details { self.eventsImagesURL.append(detail.photoURL ?? "") }
-            self.eventsCollectionView.reloadData()
+            
+            if details.count > 0 {
+
+                for detail in details {
+                    self.eventsImagesURL.append(detail.photoURL ?? "")
+                }
+
+                self.eventsLabelHeight.constant = 19
+                self.eventsCollectionViewHeight.constant = 300
+
+                self.eventsCollectionView.reloadData()
+            }
         }
     }
 
@@ -96,7 +133,6 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
         switch collectionView.tag {
         case Constants.COMICS: return comicsImagesURL.count
         case Constants.SERIES: return seriesImagesURL.count
-        case Constants.STORIES: return storiesImagesURL.count
         case Constants.EVENTS: return eventsImagesURL.count
         default: return 0
         }
@@ -108,7 +144,6 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
         switch collectionView.tag {
         case Constants.COMICS: imageURL = comicsImagesURL[indexPath.row]
         case Constants.SERIES: imageURL = seriesImagesURL[indexPath.row]
-        case Constants.STORIES: imageURL = storiesImagesURL[indexPath.row]
         case Constants.EVENTS: imageURL = eventsImagesURL[indexPath.row]
         default: break
         }

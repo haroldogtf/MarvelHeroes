@@ -164,14 +164,14 @@
             <objects>
                 <viewController id="K6s-0L-dJs" customClass="CharacterDetailViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K1Z-KS-9cJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1660"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KR-fe-LFP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1660"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1340"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-0c-uuc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1684"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1335.6666666666667"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CRF-cz-CZp">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="249.66666666666666"/>
@@ -179,7 +179,7 @@
                                                     <constraint firstAttribute="width" secondItem="CRF-cz-CZp" secondAttribute="height" multiplier="3:2" id="F4i-Oq-KmH"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-VM-VDO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-VM-VDO">
                                                 <rect key="frame" x="8" y="259.66666666666669" width="359" height="19"/>
                                                 <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -187,7 +187,10 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comics" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tv-ed-N1h">
                                                 <rect key="frame" x="8" y="298.66666666666669" width="359" height="19"/>
-                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="19" id="DFY-VY-GdF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -230,7 +233,10 @@
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duw-5M-z0b">
                                                 <rect key="frame" x="8" y="647.66666666666663" width="359" height="19"/>
-                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="19" id="oG8-nA-Suc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -271,57 +277,17 @@
                                                     <outlet property="delegate" destination="K6s-0L-dJs" id="gri-iN-aIk"/>
                                                 </connections>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stories" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-Bb-qvk">
-                                                <rect key="frame" x="8" y="996" width="359" height="19"/>
-                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QHq-xN-XXI">
-                                                <rect key="frame" x="0.0" y="1025" width="375" height="300"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="Nc9-UF-Gox"/>
-                                                </constraints>
-                                                <collectionViewLayout key="collectionViewLayout" id="zzY-ml-5S2" customClass="MMBannerLayout" customModule="MMBannerLayout"/>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterDetailCollectionViewCell" id="r0f-Wr-8Xe" customClass="CharacterDetailCollectionViewCell" customModule="MarvelHeroes" customModuleProvider="target">
-                                                        <rect key="frame" x="44.666666666666664" y="0.0" width="286" height="255"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="286" height="255"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="it8-D9-2ui">
-                                                                    <rect key="frame" x="8" y="52" width="270" height="195"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstItem="it8-D9-2ui" firstAttribute="top" secondItem="r0f-Wr-8Xe" secondAttribute="topMargin" id="2bk-jD-ifk"/>
-                                                            <constraint firstAttribute="bottomMargin" secondItem="it8-D9-2ui" secondAttribute="bottom" id="5jd-oy-Leo"/>
-                                                            <constraint firstItem="it8-D9-2ui" firstAttribute="leading" secondItem="r0f-Wr-8Xe" secondAttribute="leadingMargin" id="RiJ-Sc-EIA"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="it8-D9-2ui" secondAttribute="trailing" id="gCB-IN-SHg"/>
-                                                        </constraints>
-                                                        <size key="customSize" width="286" height="255"/>
-                                                        <connections>
-                                                            <outlet property="photoImageView" destination="it8-D9-2ui" id="Dpt-Hw-yLR"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="K6s-0L-dJs" id="jeI-j0-TkZ"/>
-                                                    <outlet property="delegate" destination="K6s-0L-dJs" id="rHf-5a-saY"/>
-                                                </connections>
-                                            </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-gq-baB">
-                                                <rect key="frame" x="0.0" y="1345" width="375" height="19"/>
-                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="17"/>
+                                                <rect key="frame" x="8" y="996.66666666666674" width="359" height="19"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="19" id="imz-kZ-KSw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AAm-oO-mR0">
-                                                <rect key="frame" x="0.0" y="1374" width="375" height="300"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AAm-oO-mR0">
+                                                <rect key="frame" x="0.0" y="1025.6666666666667" width="375" height="300"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="tZ8-uS-E8c"/>
@@ -360,37 +326,31 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="2Sb-Bb-qvk" firstAttribute="top" secondItem="jVZ-6P-bSZ" secondAttribute="bottom" constant="20" id="Cgj-5j-bb6"/>
                                             <constraint firstItem="AAm-oO-mR0" firstAttribute="top" secondItem="XLp-gq-baB" secondAttribute="bottom" constant="10" id="CrN-NL-0xB"/>
                                             <constraint firstItem="6Tv-ed-N1h" firstAttribute="top" secondItem="jeH-VM-VDO" secondAttribute="bottom" constant="20" id="Dhe-cm-Bui"/>
-                                            <constraint firstAttribute="trailing" secondItem="QHq-xN-XXI" secondAttribute="trailing" id="F5w-sz-PVu"/>
                                             <constraint firstItem="jeH-VM-VDO" firstAttribute="top" secondItem="CRF-cz-CZp" secondAttribute="bottom" constant="10" id="Hdi-qq-nZe"/>
                                             <constraint firstItem="AAm-oO-mR0" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" id="HfT-0B-lLB"/>
                                             <constraint firstItem="CRF-cz-CZp" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" id="IhJ-sZ-fOt"/>
-                                            <constraint firstItem="QHq-xN-XXI" firstAttribute="top" secondItem="2Sb-Bb-qvk" secondAttribute="bottom" constant="10" id="IuX-7O-xzS"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="XLp-gq-baB" secondAttribute="trailing" id="JAK-yB-Quo"/>
                                             <constraint firstItem="jeH-VM-VDO" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" constant="8" id="JCz-gn-efY"/>
-                                            <constraint firstItem="XLp-gq-baB" firstAttribute="top" secondItem="QHq-xN-XXI" secondAttribute="bottom" constant="20" id="JDZ-Q2-lsB"/>
                                             <constraint firstItem="Duw-5M-z0b" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leadingMargin" id="O3d-tl-rDr"/>
                                             <constraint firstAttribute="trailing" secondItem="AAm-oO-mR0" secondAttribute="trailing" id="OvC-o4-pxb"/>
                                             <constraint firstItem="CRF-cz-CZp" firstAttribute="top" secondItem="XvX-0c-uuc" secondAttribute="top" id="RLa-yF-7o6"/>
                                             <constraint firstItem="QKk-zY-CQ3" firstAttribute="top" secondItem="6Tv-ed-N1h" secondAttribute="bottom" constant="10" id="Wcq-bY-IiR"/>
                                             <constraint firstItem="jVZ-6P-bSZ" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" id="YPj-Rk-Wwq"/>
                                             <constraint firstAttribute="trailing" secondItem="QKk-zY-CQ3" secondAttribute="trailing" id="apL-Bo-7ro"/>
-                                            <constraint firstItem="2Sb-Bb-qvk" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leadingMargin" id="bDV-hh-EAc"/>
                                             <constraint firstItem="6Tv-ed-N1h" firstAttribute="trailing" secondItem="XvX-0c-uuc" secondAttribute="trailingMargin" id="bKF-rT-IgZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="XLp-gq-baB" secondAttribute="trailing" id="c90-sk-UZH"/>
                                             <constraint firstAttribute="trailing" secondItem="jVZ-6P-bSZ" secondAttribute="trailing" id="d5v-E8-y7X"/>
                                             <constraint firstItem="Duw-5M-z0b" firstAttribute="trailing" secondItem="XvX-0c-uuc" secondAttribute="trailingMargin" id="dgi-Zg-Rdc"/>
+                                            <constraint firstItem="XLp-gq-baB" firstAttribute="top" secondItem="jVZ-6P-bSZ" secondAttribute="bottom" constant="20" id="fFk-MC-HXy"/>
                                             <constraint firstItem="6Tv-ed-N1h" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leadingMargin" id="g6L-Gj-jad"/>
                                             <constraint firstItem="Duw-5M-z0b" firstAttribute="top" secondItem="QKk-zY-CQ3" secondAttribute="bottom" constant="20" id="haD-Ta-UpM"/>
+                                            <constraint firstItem="XLp-gq-baB" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leadingMargin" id="kvf-5c-ogH"/>
                                             <constraint firstItem="jVZ-6P-bSZ" firstAttribute="top" secondItem="Duw-5M-z0b" secondAttribute="bottom" constant="10" id="qgH-BG-4ET"/>
                                             <constraint firstAttribute="trailing" secondItem="jeH-VM-VDO" secondAttribute="trailing" constant="8" id="qgi-n4-PHC"/>
-                                            <constraint firstItem="QHq-xN-XXI" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" id="rfP-Wg-vqh"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="2Sb-Bb-qvk" secondAttribute="trailing" id="rr6-Fu-6he"/>
                                             <constraint firstAttribute="trailing" secondItem="CRF-cz-CZp" secondAttribute="trailing" id="uVX-Fw-rze"/>
                                             <constraint firstItem="QKk-zY-CQ3" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" id="x0l-of-8dc"/>
                                             <constraint firstAttribute="bottom" secondItem="AAm-oO-mR0" secondAttribute="bottom" constant="10" id="y5S-sk-z9M"/>
-                                            <constraint firstItem="XLp-gq-baB" firstAttribute="leading" secondItem="XvX-0c-uuc" secondAttribute="leading" id="ywd-nK-cvq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -413,18 +373,22 @@
                         <viewLayoutGuide key="safeArea" id="SUE-gZ-B8r"/>
                     </view>
                     <navigationItem key="navigationItem" title="Character" id="aKZ-7b-wrq"/>
-                    <size key="freeformSize" width="375" height="1800"/>
+                    <size key="freeformSize" width="375" height="1480"/>
                     <connections>
                         <outlet property="comicsCollectionView" destination="QKk-zY-CQ3" id="Bry-O4-jA7"/>
+                        <outlet property="comicsCollectionViewHeight" destination="cc0-hK-ZuT" id="dtH-d6-wVD"/>
                         <outlet property="comicsLabel" destination="6Tv-ed-N1h" id="dqO-Up-Wkk"/>
+                        <outlet property="comicsLabelHeight" destination="DFY-VY-GdF" id="QWt-OK-88j"/>
                         <outlet property="descriptionLabel" destination="jeH-VM-VDO" id="3OJ-2H-z3Y"/>
                         <outlet property="eventsCollectionView" destination="AAm-oO-mR0" id="lJz-VQ-s4W"/>
+                        <outlet property="eventsCollectionViewHeight" destination="tZ8-uS-E8c" id="opg-Zg-wat"/>
                         <outlet property="eventsLabel" destination="XLp-gq-baB" id="OGd-Dg-gVK"/>
+                        <outlet property="eventsLabelHeight" destination="imz-kZ-KSw" id="s1E-S5-McP"/>
                         <outlet property="photoImageView" destination="CRF-cz-CZp" id="1u4-CW-45q"/>
                         <outlet property="seriesCollectionView" destination="jVZ-6P-bSZ" id="jSm-AP-ZjH"/>
+                        <outlet property="seriesCollectionViewHeight" destination="9MM-yZ-VuJ" id="cyi-cJ-DII"/>
                         <outlet property="seriesLabel" destination="Duw-5M-z0b" id="dIx-w0-itK"/>
-                        <outlet property="storiesCollectionView" destination="QHq-xN-XXI" id="vVy-h4-dW3"/>
-                        <outlet property="storiesLabel" destination="2Sb-Bb-qvk" id="t61-0r-6rF"/>
+                        <outlet property="seriesLabelHeight" destination="oG8-nA-Suc" id="fMR-TH-gpQ"/>
                         <outlet property="titleNavigationItem" destination="aKZ-7b-wrq" id="AtP-gg-RSP"/>
                     </connections>
                 </viewController>
