@@ -126,9 +126,6 @@ extension CharactersViewController {
     override func AZCollectionView(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
-        print(indexPath.row)
-        print(characters.count)
-
         cell.fill(character: characters[indexPath.row])
 
         return cell
