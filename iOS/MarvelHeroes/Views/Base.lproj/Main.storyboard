@@ -24,6 +24,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="RBD-d5-xEZ">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Hero" family="Hero" pointSize="18"/>
@@ -43,7 +44,7 @@
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="746.17691154422789"/>
         </scene>
-        <!--Marvel Heroes-->
+        <!--Marvel Characters-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CharactersViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,15 +147,35 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Marvel Heroes" id="7c8-2C-8XV"/>
+                    <navigationItem key="navigationItem" title="Marvel Characters" id="7c8-2C-8XV"/>
                     <connections>
                         <outlet property="collectionView" destination="eMo-S1-6ij" id="SxU-sF-rOp"/>
                         <outlet property="tabBar" destination="tl4-PU-9jM" id="ObG-GS-mZp"/>
+                        <segue destination="K6s-0L-dJs" kind="show" identifier="CharacterDetailViewController" id="1fH-sP-LeQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="744.82758620689663"/>
+        </scene>
+        <!--Character-->
+        <scene sceneID="Xz8-ct-YkO">
+            <objects>
+                <viewController id="K6s-0L-dJs" customClass="CharacterDetailViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K1Z-KS-9cJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SUE-gZ-B8r"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Character" id="aKZ-7b-wrq"/>
+                    <connections>
+                        <outlet property="titleNavigationItem" destination="aKZ-7b-wrq" id="AtP-gg-RSP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tO-hk-u4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1767" y="746"/>
         </scene>
     </scenes>
     <resources>

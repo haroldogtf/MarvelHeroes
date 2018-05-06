@@ -115,6 +115,11 @@ class CharactersViewController: AZCollectionViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detail = segue.destination as! CharacterDetailViewController
+        detail.character = (sender as? Character)
+    }
+
 }
 
 extension CharactersViewController {
@@ -130,6 +135,22 @@ extension CharactersViewController {
     override func AZCollectionView(_ collectionView: UICollectionView, heightForRowAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 170, height: 170)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let cellWidth: CGFloat = 170.0
+        
+        let numberOfCells = floor(view.frame.size.width / cellWidth)
+        let edgeInsets = (view.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
+        
+        return UIEdgeInsetsMake(10, edgeInsets - 5, 0, edgeInsets - 5)
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "CharacterDetailViewController", sender: characters[indexPath.row])
+    }
+
 }
 
 extension CharactersViewController {
@@ -168,20 +189,6 @@ extension CharactersViewController {
         }
     }
     
-}
-
-extension CharactersViewController {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        let cellWidth: CGFloat = 170.0
-
-        let numberOfCells = floor(view.frame.size.width / cellWidth)
-        let edgeInsets = (view.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
-
-        return UIEdgeInsetsMake(10, edgeInsets - 5, 0, edgeInsets - 5)
-    }
-
 }
 
 extension CharactersViewController: UITabBarDelegate {
