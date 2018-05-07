@@ -36,12 +36,7 @@ class CharactersViewController: AZCollectionViewController {
     deinit {
         unloadNewtworkNotification()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
-        collectionView?.reloadData()
-    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tabBar.invalidateIntrinsicContentSize()
@@ -90,6 +85,14 @@ class CharactersViewController: AZCollectionViewController {
     }
     
     func getCharacters() {
+        
+        characters = CharacterCoreDataManager.fetchAll()
+
+        if characters.count > 0 {
+            didfetchData(resultCount: characters.count, haveMoreData: true)
+            return
+        }
+        
         CharactersAPIConnection.getCharacters() { (characters, error) in
             self.characters.removeAll()
             self.characters.append(contentsOf: characters)
@@ -179,16 +182,19 @@ extension CharactersViewController {
         super.fetchNextData()
 
         CharactersAPIConnection.getCharacters(offset: characters.count, searchText: searchController.searchBar.text!) { (total, characters, error) in
-            self.characters.append(contentsOf: characters)
-            if self.characters.count < total {
-                self.didfetchData(resultCount: characters.count, haveMoreData: true)
             
-            } else {
-                self.didfetchData(resultCount: characters.count, haveMoreData: false)
-            }
+            if self.tabBar.items?.index(of: self.tabBar.selectedItem!) == 0 {
+                self.characters.append(contentsOf: characters)
+                if self.characters.count < total {
+                    self.didfetchData(resultCount: characters.count, haveMoreData: true)
+                
+                } else {
+                    self.didfetchData(resultCount: characters.count, haveMoreData: false)
+                }
 
-            if let error = error {
-                self.errorDidOccured(error: error)
+                if let error = error {
+                    self.errorDidOccured(error: error)
+                }
             }
         }
     }
