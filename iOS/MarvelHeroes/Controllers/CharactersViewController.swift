@@ -165,8 +165,8 @@ extension CharactersViewController {
             performSegue(withIdentifier: "CharacterDetailViewController", sender: characters[indexPath.row])
         
         } else {
-            let alert = UIAlertController(title: "Falha de conexão", message: "Verifique sua conexão com a internet!", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Error!", message: "The Internet connection appears to be offline.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
     }
