@@ -15,8 +15,8 @@ class CharactersAPIConnection: NSObject {
     
     class func authentication() -> Parameters {
 
-        let apikey = "ecb64ae319c4b6027bf0adb6efba4fe0"
-        let privatekey = "832cf4a6aa8afa1e4e8c389f7bccb96abffa3061"
+        let apikey = Constants.KEY_API
+        let privatekey = Constants.KEY_PRIVATE
         let ts = Date().timeIntervalSince1970.description
         let hash = Util.cryptoToMD5("\(ts)\(privatekey)\(apikey)")
         

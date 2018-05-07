@@ -10,10 +10,12 @@ import CoreData
 
 class CharacterCoreDataManager: NSObject {
 
+    static let CHARACTER = String(describing: Character.self)
+    
     class func fetch(id: Int) -> Character? {
         let managedObjectContext = CoreDataManager.managedObjectContext
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Character", in: managedObjectContext)
-        let fetchRequest =  NSFetchRequest<Character>(entityName: "Character")
+        let entityDescription = NSEntityDescription.entity(forEntityName: CHARACTER, in: managedObjectContext)
+        let fetchRequest =  NSFetchRequest<Character>(entityName: CHARACTER)
         fetchRequest.entity = entityDescription
         fetchRequest.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
         
@@ -36,7 +38,7 @@ class CharacterCoreDataManager: NSObject {
         
     class func fetchAll(predicate: String) -> [Character] {
         let managedObjectContext = CoreDataManager.managedObjectContext
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Character", in: managedObjectContext)
+        let entityDescription = NSEntityDescription.entity(forEntityName: CHARACTER, in: managedObjectContext)
         let fetchRequest =  NSFetchRequest<NSFetchRequestResult>()
         fetchRequest.entity = entityDescription
         if predicate != "" || !predicate.isEmpty { fetchRequest.predicate = NSPredicate(format: predicate) }

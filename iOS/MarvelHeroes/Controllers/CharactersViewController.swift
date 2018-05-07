@@ -73,7 +73,8 @@ class CharactersViewController: AZCollectionViewController {
     }
     
     func setupCollectionView() {
-        loadNextPageLoaderCell(nibName: "NextPageLoaderCell", cellIdentifier: "NextPageLoaderCell")
+        loadNextPageLoaderCell(nibName: Constants.INDENTIFIER_NEXT_PAGE_LOADER_CELL,
+                        cellIdentifier: Constants.INDENTIFIER_NEXT_PAGE_LOADER_CELL)
     }
 
     func setupTabBar() {
@@ -84,7 +85,7 @@ class CharactersViewController: AZCollectionViewController {
     func setupSearch() {
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Character"
+        searchController.searchBar.placeholder = Constants.STRING_SEARCH
         searchController.searchBar.tintColor = UIColor.white
         navigationItem.searchController = searchController
         definesPresentationContext = true
@@ -139,7 +140,7 @@ extension CharactersViewController {
     
     override func AZCollectionView(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CharacterCollectionViewCell.self), for: indexPath) as! CharacterCollectionViewCell
         cell.fill(character: characters[indexPath.row])
 
         return cell
@@ -162,11 +163,11 @@ extension CharactersViewController {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if hasInternetConnection {
-            performSegue(withIdentifier: "CharacterDetailViewController", sender: characters[indexPath.row])
+            performSegue(withIdentifier: String(describing: CharacterDetailViewController.self), sender: characters[indexPath.row])
         
         } else {
-            let alert = UIAlertController(title: "Error!", message: "The Internet connection appears to be offline.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: Constants.STRING_ERROR_TITLE, message: Constants.STRING_NO_INTERNET_CONNECTION, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: Constants.STRING_OK, style: UIAlertActionStyle.default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
     }

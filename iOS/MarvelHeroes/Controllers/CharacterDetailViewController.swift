@@ -99,8 +99,8 @@ class CharacterDetailViewController: UIViewController {
                     self.comicsImagesURL.append(detail.photoURL ?? "")
                 }
         
-                self.comicsLabelHeight.constant = 19
-                self.comicsCollectionViewHeight.constant = 300
+                self.comicsLabelHeight.constant = Constants.VALUE_SECTION_HEIGHT
+                self.comicsCollectionViewHeight.constant = Constants.VALUE_COLLECTIONVIEW_HEIGHT
                 
                 self.comicsCollectionView.reloadData()
             }
@@ -115,8 +115,8 @@ class CharacterDetailViewController: UIViewController {
                     self.seriesImagesURL.append(detail.photoURL ?? "")
                 }
                 
-                self.seriesLabelHeight.constant = 19
-                self.seriesCollectionViewHeight.constant = 300
+                self.seriesLabelHeight.constant = Constants.VALUE_SECTION_HEIGHT
+                self.seriesCollectionViewHeight.constant = Constants.VALUE_COLLECTIONVIEW_HEIGHT
 
                 self.seriesCollectionView.reloadData()
             }
@@ -131,8 +131,8 @@ class CharacterDetailViewController: UIViewController {
                     self.eventsImagesURL.append(detail.photoURL ?? "")
                 }
 
-                self.eventsLabelHeight.constant = 19
-                self.eventsCollectionViewHeight.constant = 300
+                self.eventsLabelHeight.constant = Constants.VALUE_SECTION_HEIGHT
+                self.eventsCollectionViewHeight.constant = Constants.VALUE_COLLECTIONVIEW_HEIGHT
 
                 self.eventsCollectionView.reloadData()
             }
@@ -169,7 +169,7 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
         default: break
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterDetailCollectionViewCell", for: indexPath) as! CharacterDetailCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CharacterDetailCollectionViewCell.self), for: indexPath) as! CharacterDetailCollectionViewCell
         cell.photoImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: #imageLiteral(resourceName: "placeholder-heroes"))
 
         return cell

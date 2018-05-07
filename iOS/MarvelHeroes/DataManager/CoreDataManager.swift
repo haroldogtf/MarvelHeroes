@@ -11,7 +11,7 @@ import UIKit
 
 class CoreDataManager: NSObject {
     
-    static let database = "MarvelHeroes"
+    static let DATABASE = "MarvelHeroes"
     
     static var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -19,13 +19,13 @@ class CoreDataManager: NSObject {
     }()
     
     static var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle(for: CoreDataManager.self).url(forResource: database, withExtension: "momd")!
+        let modelURL = Bundle(for: CoreDataManager.self).url(forResource: DATABASE, withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
     static var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-        let url = applicationDocumentsDirectory.appendingPathComponent(database + ".sqlite")
+        let url = applicationDocumentsDirectory.appendingPathComponent(DATABASE + ".sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         let options = [NSMigratePersistentStoresAutomaticallyOption: NSNumber(value: true as Bool), NSInferMappingModelAutomaticallyOption: NSNumber(value: true as Bool)]
         
