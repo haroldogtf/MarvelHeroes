@@ -78,7 +78,7 @@ class CharactersViewController: AZCollectionViewController {
     func setupSearch() {
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Heroes"
+        searchController.searchBar.placeholder = "Search Character"
         searchController.searchBar.tintColor = UIColor.white
         navigationItem.searchController = searchController
         definesPresentationContext = true
