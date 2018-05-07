@@ -10,6 +10,7 @@ target 'MarvelHeroes' do
   pod 'AZCollectionViewController'
   pod 'CryptoSwift'
   pod 'MMBannerLayout'
+  pod 'PKHUD'
   pod 'ReachabilitySwift'
   pod 'SDWebImage'
 

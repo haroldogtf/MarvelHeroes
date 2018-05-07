@@ -7,6 +7,7 @@ PODS:
   - CryptoSwift (0.9.0)
   - MMBannerLayout (1.1.1)
   - ObjectMapper (3.1.0)
+  - PKHUD (5.0.0)
   - ReachabilitySwift (4.1.0)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - AZCollectionViewController
   - CryptoSwift
   - MMBannerLayout
+  - PKHUD
   - ReachabilitySwift
   - SDWebImage
 
@@ -29,6 +31,7 @@ SPEC REPOS:
     - CryptoSwift
     - MMBannerLayout
     - ObjectMapper
+    - PKHUD
     - ReachabilitySwift
     - SDWebImage
 
@@ -39,9 +42,10 @@ SPEC CHECKSUMS:
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   MMBannerLayout: ca952bbfcb6b27b5753a17c4733da53345ffcae5
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: 9e7b636ffd8130e2384f3e31f2ca217c96bca515
+PODFILE CHECKSUM: dca556dac55b157d04e5972d26101e2db0eedde1
 
 COCOAPODS: 1.5.0

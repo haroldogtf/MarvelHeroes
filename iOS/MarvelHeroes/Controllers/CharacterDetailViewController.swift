@@ -7,6 +7,7 @@
 //
 
 import MMBannerLayout
+import PKHUD
 import SDWebImage
 import UIKit
 
@@ -87,8 +88,11 @@ class CharacterDetailViewController: UIViewController {
     }
 
     func fetchData() {
+        HUD.show(.progress)
+        
         CharactersAPIConnection.getComics(character: character) { (details, error) in
-            
+            HUD.hide()
+
             if details.count > 0 {
                 
                 for detail in details {
@@ -103,7 +107,8 @@ class CharacterDetailViewController: UIViewController {
         }
         
         CharactersAPIConnection.getSeries(character: character) { (details, error) in
-            
+            HUD.hide()
+
             if details.count > 0 {
 
                 for detail in details {
@@ -118,7 +123,8 @@ class CharacterDetailViewController: UIViewController {
         }
         
         CharactersAPIConnection.getEvents(character: character) { (details, error) in
-            
+            HUD.hide()
+
             if details.count > 0 {
 
                 for detail in details {
