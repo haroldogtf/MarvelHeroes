@@ -21,6 +21,8 @@ class CharactersViewController: AZCollectionViewController {
 
     var characters: [Character] = []
     var lastIndex = 0
+    
+    var hasInternetConnection = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +63,12 @@ class CharactersViewController: AZCollectionViewController {
         
         switch reachability.connection {
         case .wifi, .cellular:
+            hasInternetConnection = true
             fetchNextData()
-        default: break
+        
+        case .none:
+            hasInternetConnection = false
+
         }
     }
     
@@ -155,7 +161,14 @@ extension CharactersViewController {
 
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "CharacterDetailViewController", sender: characters[indexPath.row])
+        if hasInternetConnection {
+            performSegue(withIdentifier: "CharacterDetailViewController", sender: characters[indexPath.row])
+        
+        } else {
+            let alert = UIAlertController(title: "Falha de conexão", message: "Verifique sua conexão com a internet!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
 
 }
