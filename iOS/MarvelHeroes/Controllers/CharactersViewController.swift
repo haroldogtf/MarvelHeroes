@@ -172,6 +172,7 @@ extension CharactersViewController {
             default: break
             }
         } else {
+            tabBar.selectedItem = tabBar.items?.first
             getCharactersSearch()
         }
         
