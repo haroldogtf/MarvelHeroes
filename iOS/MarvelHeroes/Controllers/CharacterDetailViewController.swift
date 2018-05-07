@@ -98,6 +98,7 @@ class CharacterDetailViewController: UIViewController {
                 for detail in details {
                     self.comicsImagesURL.append(detail.photoURL ?? "")
                 }
+                while self.comicsImagesURL.count < 3 { self.comicsImagesURL.append(self.comicsImagesURL.first  ?? "") }
         
                 self.comicsLabelHeight.constant = Constants.VALUE_SECTION_HEIGHT
                 self.comicsCollectionViewHeight.constant = Constants.VALUE_COLLECTIONVIEW_HEIGHT
@@ -114,6 +115,7 @@ class CharacterDetailViewController: UIViewController {
                 for detail in details {
                     self.seriesImagesURL.append(detail.photoURL ?? "")
                 }
+                while self.seriesImagesURL.count < 3 { self.seriesImagesURL.append(self.seriesImagesURL.first  ?? "") }
                 
                 self.seriesLabelHeight.constant = Constants.VALUE_SECTION_HEIGHT
                 self.seriesCollectionViewHeight.constant = Constants.VALUE_COLLECTIONVIEW_HEIGHT
@@ -130,6 +132,7 @@ class CharacterDetailViewController: UIViewController {
                 for detail in details {
                     self.eventsImagesURL.append(detail.photoURL ?? "")
                 }
+                while self.eventsImagesURL.count < 3 { self.eventsImagesURL.append(self.eventsImagesURL.first  ?? "") }
 
                 self.eventsLabelHeight.constant = Constants.VALUE_SECTION_HEIGHT
                 self.eventsCollectionViewHeight.constant = Constants.VALUE_COLLECTIONVIEW_HEIGHT
