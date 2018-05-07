@@ -37,6 +37,11 @@ class CharactersViewController: AZCollectionViewController {
         unloadNewtworkNotification()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        collectionView?.reloadData()
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tabBar.invalidateIntrinsicContentSize()

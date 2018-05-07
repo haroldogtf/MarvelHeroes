@@ -13,6 +13,7 @@ import UIKit
 class CharacterDetailViewController: UIViewController {
 
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
 
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -44,6 +45,7 @@ class CharacterDetailViewController: UIViewController {
 
         setupCharacter()
         setupCollectionViews()
+        setupFavorite()
         
         fetchData()
     }
@@ -55,6 +57,8 @@ class CharacterDetailViewController: UIViewController {
     }
 
     func setup(collectionView: UICollectionView) {
+        collectionView.showsHorizontalScrollIndicator = false
+
         if let layout = collectionView.collectionViewLayout as? MMBannerLayout {
             layout.itemSpace = 5.0
             layout.itemSize = collectionView.frame.insetBy(dx: 80, dy: 20).size
@@ -78,6 +82,10 @@ class CharacterDetailViewController: UIViewController {
         setup(collectionView: eventsCollectionView)
     }
     
+    func setupFavorite() {
+        favoriteButton.image = character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite")
+    }
+
     func fetchData() {
         CharactersAPIConnection.getComics(character: character) { (details, error) in
             
@@ -123,6 +131,13 @@ class CharacterDetailViewController: UIViewController {
                 self.eventsCollectionView.reloadData()
             }
         }
+    }
+
+    @IBAction func favoriteButtonAction(_ sender: Any) {
+        character.favorite = !character.favorite
+        CoreDataManager.save()
+
+        favoriteButton.image = character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite")
     }
 
 }

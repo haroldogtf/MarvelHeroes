@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="948" y="744.82758620689663"/>
         </scene>
-        <!--Character-->
+        <!--Character Detail-->
         <scene sceneID="Xz8-ct-YkO">
             <objects>
-                <viewController id="K6s-0L-dJs" customClass="CharacterDetailViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Character Detail" id="K6s-0L-dJs" customClass="CharacterDetailViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K1Z-KS-9cJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,7 +372,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SUE-gZ-B8r"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Character" id="aKZ-7b-wrq"/>
+                    <navigationItem key="navigationItem" title="Character" id="aKZ-7b-wrq">
+                        <barButtonItem key="rightBarButtonItem" image="star-nofavorite" id="rY5-lw-qEL">
+                            <connections>
+                                <action selector="favoriteButtonAction:" destination="K6s-0L-dJs" id="Xyz-i4-qrC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="1480"/>
                     <connections>
                         <outlet property="comicsCollectionView" destination="QKk-zY-CQ3" id="Bry-O4-jA7"/>
@@ -384,6 +390,7 @@
                         <outlet property="eventsCollectionViewHeight" destination="tZ8-uS-E8c" id="opg-Zg-wat"/>
                         <outlet property="eventsLabel" destination="XLp-gq-baB" id="OGd-Dg-gVK"/>
                         <outlet property="eventsLabelHeight" destination="imz-kZ-KSw" id="s1E-S5-McP"/>
+                        <outlet property="favoriteButton" destination="rY5-lw-qEL" id="pXN-LF-HM4"/>
                         <outlet property="photoImageView" destination="CRF-cz-CZp" id="1u4-CW-45q"/>
                         <outlet property="seriesCollectionView" destination="jVZ-6P-bSZ" id="jSm-AP-ZjH"/>
                         <outlet property="seriesCollectionViewHeight" destination="9MM-yZ-VuJ" id="cyi-cJ-DII"/>
