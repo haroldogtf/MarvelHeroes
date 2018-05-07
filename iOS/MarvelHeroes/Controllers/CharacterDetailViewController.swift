@@ -38,6 +38,8 @@ class CharacterDetailViewController: UIViewController {
     var comicsImagesURL: [String] = []
     var seriesImagesURL: [String] = []
     var eventsImagesURL: [String] = []
+    
+    var urlCount = 0
 
     var character: Character!
     
@@ -54,7 +56,9 @@ class CharacterDetailViewController: UIViewController {
     func setupCharacter() {
         titleNavigationItem.title = character.name
         photoImageView.sd_setImage(with: URL(string: character.photoURL ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholder-heroes"))
-        descriptionLabel.text = character.about
+        
+        descriptionLabel.text = character.about == "" ? Constants.STRING_NO_DESCRIPTION
+                                                      : character.about
     }
 
     func setup(collectionView: UICollectionView) {
@@ -87,11 +91,19 @@ class CharacterDetailViewController: UIViewController {
         favoriteButton.image = character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite")
     }
 
+    func hideHUD() {
+        urlCount += 1
+        
+        if urlCount == 3 {
+            HUD.hide()
+        }
+    }
+    
     func fetchData() {
         HUD.show(.progress)
         
         CharactersAPIConnection.getComics(character: character) { (details, error) in
-            HUD.hide()
+            self.hideHUD()
 
             if details.count > 0 {
                 
@@ -108,7 +120,7 @@ class CharacterDetailViewController: UIViewController {
         }
         
         CharactersAPIConnection.getSeries(character: character) { (details, error) in
-            HUD.hide()
+            self.hideHUD()
 
             if details.count > 0 {
 
@@ -125,7 +137,7 @@ class CharacterDetailViewController: UIViewController {
         }
         
         CharactersAPIConnection.getEvents(character: character) { (details, error) in
-            HUD.hide()
+            self.hideHUD()
 
             if details.count > 0 {
 

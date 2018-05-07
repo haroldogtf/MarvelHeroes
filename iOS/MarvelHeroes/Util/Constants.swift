@@ -20,6 +20,7 @@ class Constants: NSObject {
     static let INDENTIFIER_NEXT_PAGE_LOADER_CELL = "NextPageLoaderCell"
     
     static let STRING_ERROR_TITLE = "Error!"
+    static let STRING_NO_DESCRIPTION = "This character has no description"
     static let STRING_NO_INTERNET_CONNECTION = "The Internet connection appears to be offline."
     static let STRING_OK = "Ok"
     static let STRING_SEARCH = "Search Character"
