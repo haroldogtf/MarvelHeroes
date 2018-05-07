@@ -124,7 +124,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="Characters" image="nick-fury" id="Uv6-KO-d7Q"/>
-                                    <tabBarItem title="Favorites" image="star-favorite" id="eat-QL-45o"/>
+                                    <tabBarItem title="Favorites" image="star-nofavorite" id="eat-QL-45o"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.87058823529411766" green="0.20784313725490194" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -406,7 +406,6 @@
     </scenes>
     <resources>
         <image name="nick-fury" width="32" height="32"/>
-        <image name="star-favorite" width="32" height="32"/>
         <image name="star-nofavorite" width="32" height="32"/>
     </resources>
 </document>
