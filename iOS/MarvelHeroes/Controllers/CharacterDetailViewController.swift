@@ -38,8 +38,6 @@ class CharacterDetailViewController: UIViewController {
     var comicsImagesURL: [String] = []
     var seriesImagesURL: [String] = []
     var eventsImagesURL: [String] = []
-    
-    var urlCount = 0
 
     var character: Character!
     
@@ -90,20 +88,12 @@ class CharacterDetailViewController: UIViewController {
     func setupFavorite() {
         favoriteButton.image = character.favorite ? #imageLiteral(resourceName: "star-favorite") : #imageLiteral(resourceName: "star-nofavorite")
     }
-
-    func hideHUD() {
-        urlCount += 1
-        
-        if urlCount == 3 {
-            HUD.hide()
-        }
-    }
     
     func fetchData() {
         HUD.show(.progress)
         
         CharactersAPIConnection.getComics(character: character) { (details, error) in
-            self.hideHUD()
+            HUD.hide()
 
             if details.count > 0 {
                 
@@ -120,7 +110,7 @@ class CharacterDetailViewController: UIViewController {
         }
         
         CharactersAPIConnection.getSeries(character: character) { (details, error) in
-            self.hideHUD()
+            HUD.hide()
 
             if details.count > 0 {
 
@@ -137,7 +127,7 @@ class CharacterDetailViewController: UIViewController {
         }
         
         CharactersAPIConnection.getEvents(character: character) { (details, error) in
-            self.hideHUD()
+            HUD.hide()
 
             if details.count > 0 {
 
